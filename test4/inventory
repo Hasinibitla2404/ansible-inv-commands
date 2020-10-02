@@ -1,0 +1,27 @@
+
+node1 ansible_host=13.235.81.105 
+node2 ansible_host=15.206.203.76 
+node3 ansible_host=13.235.87.231 
+
+
+[webservergroup]
+node1
+node2
+
+
+[dbservergroup]
+node3
+
+
+[mygroup:children]
+webservergroup
+dbservergroup
+
+
+[webservergroup:vars]
+ansible_user=sham
+ansible-ssh-pass=.
+
+[dbservergroup:vars]
+ansible_user=sham
+ansible-ssh_pass=.
